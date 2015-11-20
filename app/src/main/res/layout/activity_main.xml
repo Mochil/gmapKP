@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/top_navigation"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/FormPemesanan">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+                <include
+                    android:id="@+id/map"
+                    layout="@layout/maps"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="@dimen/margin20dp"
+                        android:paddingRight="@dimen/margin20dp"
+                        android:paddingTop="@dimen/margin10dp">
+
+                        <TextView
+                            android:id="@+id/pengirim"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:text="Pengirim"
+                            android:textColor="@color/text_dark"
+                            android:textSize="@dimen/text14"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/lokasiKu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/lokasi"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Lokasi"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/detailLokasi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/lokasiDetail"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Lokasi Detail"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/kontak"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/kontakTambahan"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Kontak Tambahan"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="@dimen/margin20dp"
+                        android:paddingRight="@dimen/margin20dp"
+                        android:paddingTop="@dimen/margin10dp">
+
+                        <TextView
+                            android:id="@+id/penerima"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:text="Penerima"
+                            android:textColor="@color/text_dark"
+                            android:textSize="@dimen/text14"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/lokasiMu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/lokasiPenerima"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Lokasi"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/detailLokasiPenerima"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/lokasiDetailPenerima"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Lokasi Detail"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/kontakPenerima"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/kontakTambahanPenerima"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Kontak Tambahan"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="@dimen/margin20dp"
+                        android:paddingRight="@dimen/margin20dp"
+                        android:paddingTop="@dimen/margin10dp">
+
+                        <TextView
+                            android:id="@+id/barang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:text="Barang"
+                            android:textColor="@color/text_dark"
+                            android:textSize="@dimen/text14"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/jenisPaket"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/JenisBarang"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Jenis Barang"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/berat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/beratBarang"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Berat Barang"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/dimensi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin5dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:id="@+id/dimensiBarang"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Dimensi Barang"
+                                android:inputType="textEmailAddress"
+                                android:textSize="15sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+        </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>

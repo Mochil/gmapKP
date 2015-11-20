@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="margin1dp">1dp</dimen>
+    <dimen name="margin2dp">2dp</dimen>
+    <dimen name="margin3dp">3dp</dimen>
+    <dimen name="margin5dp">5dp</dimen>
+    <dimen name="margin7dp">7dp</dimen>
+    <dimen name="margin8dp">8dp</dimen>
+    <dimen name="margin10dp">10dp</dimen>
+    <dimen name="margin12dp">12dp</dimen>
+    <dimen name="margin16dp">16dp</dimen>
+    <dimen name="margin20dp">20dp</dimen>
+    <dimen name="margin40dp">40dp</dimen>
+    <dimen name="marginmin20dp">-20dp</dimen>
+
+    <!-- content height -->
+    <dimen name="size2">2dp</dimen>
+    <dimen name="size32">32dp</dimen>
+    <dimen name="size40">40dp</dimen>
+    <dimen name="size45">45dp</dimen>
+    <dimen name="size50">50dp</dimen>
+    <dimen name="size55">55dp</dimen>
+    <dimen name="size72">72dp</dimen>
+    <dimen name="size70">70dp</dimen>
+    <dimen name="size75">75dp</dimen>
+    <dimen name="size90">90dp</dimen>
+    <dimen name="size100">100dp</dimen>
+    <dimen name="size110">110dp</dimen>
+    <dimen name="size120">120dp</dimen>
+    <dimen name="size150">150dp</dimen>
+    <dimen name="size200">200dp</dimen>
+    <dimen name="size500">500dp</dimen>
+
+    <!-- Text Size -->
+    <dimen name="text12">12sp</dimen>
+    <dimen name="text14">14sp</dimen>
+    <dimen name="text16">16sp</dimen>
+    <dimen name="text18">18sp</dimen>
+    <dimen name="text20">20sp</dimen>
+    <dimen name="text22">22sp</dimen>
+    <dimen name="text24">24sp</dimen>
+    <dimen name="text30">30sp</dimen>
+    <dimen name="text48">48sp</dimen>
+
+    <!-- Sliding Menu -->
+    <dimen name="sliding_menu_shadow_width">16dp</dimen>
+    <dimen name="sliding_menu_offset">100dp</dimen>
+
+</resources>

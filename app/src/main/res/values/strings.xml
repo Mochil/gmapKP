@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Aplikasi Kurir</string>
+    <string name="title_activity_maps">GMap KP</string>
+    <string name="cabin_class">Cabin Class</string>
+    <string name="origin">Origin</string>
+    <string name="departure">Departure</string>
+    <string name="return_">Return</string>
+    <string name="add_more">Add More</string>
+    <string name="number_of_adults">Number of Adults</string>
+    <string name="Over_12_years">Over 12 years</string>
+    <string name="number_of_child">Number of Child</string>
+    <string name="three_until_11_years">3 Until 11 years</string>
+    <string name="number_of_baby">Number of Baby</string>
+    <string name="zero_until_2_years">0 until 2 years</string>
+</resources>

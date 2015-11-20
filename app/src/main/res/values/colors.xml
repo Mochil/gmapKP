@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="oerlay_white_glasses1">#90FFFFFF</color>
+    <color name="oerlay_white_glasses2">#40FFFFFF</color>
+
+    <color name="black_overlay">#88000000</color>
+    <color name="black">#000000</color>
+    <color name="blue_title">#0091EA</color>
+    <color name="tosca_light">#DDFFFF</color>
+    <color name="orange">#f97b0c</color>
+    <color name="text_dark">#424e5a</color>
+    <color name="text_normal">#888888</color>
+
+    <color name="grey">#FF888888</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="grey_transparent">#88888888</color>
+    <color name="transparent_overlay">#88000000</color>
+
+    <color name="background">#FFDEDEDE</color>
+</resources>
