@@ -104,7 +104,7 @@ public class Dashboard extends FragmentActivity
         mUiSetting.setZoomControlsEnabled(true);
 
         Marker TP = mMap.addMarker(new MarkerOptions().
-                position(TutorialsPoint).title("TutorialsPoint"));
+                position(TutorialsPoint).title("TutorialsPoint2"));
 
     }
 }
