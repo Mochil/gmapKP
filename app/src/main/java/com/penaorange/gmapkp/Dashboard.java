@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -80,9 +82,29 @@ public class Dashboard extends FragmentActivity
          */
     public void showMyLocation(View view) {
         if (mGoogleApiClient.isConnected()) {
-            String msg = "Lokasiku = "
-                    + LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+
+            Location location = new Location(LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient));
+            double lat = location.getLatitude();
+            double lang = location.getLongitude();
+            List<Address> addressList = null;
+
+            EditText et = (EditText)findViewById(R.id.lokasi);
+
+            Geocoder geocoder = new Geocoder(this);
+            try {
+                addressList = geocoder.getFromLocation(lat, lang, 1);
+            } catch (IOException e) {
+                Toast.makeText(getApplicationContext(), "Lokasi tidak ada ", Toast.LENGTH_SHORT).show();
+            }
+
+            Address address = addressList.get(0);
+
+            String msg = "Lokasiku di "+address.getSubLocality()+" "+
+                    address.getThoroughfare()+", "+address.getSubAdminArea()+
+                    " dengan koordinat lat : " + lat +" dan long : "+lang;
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+
+            et.setText(msg);
         }
 
     }

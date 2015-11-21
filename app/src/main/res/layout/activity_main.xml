@@ -8,6 +8,7 @@
     <include
         android:id="@+id/header"
         layout="@layout/top_navigation"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,7 +71,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Lokasi"
-                                android:inputType="textEmailAddress"
+                                android:inputType="text"
                                 android:textSize="15sp"/>
                         </LinearLayout>
 
