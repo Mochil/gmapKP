@@ -32,9 +32,6 @@ public class MapsActivity extends FragmentActivity
     private GoogleApiClient mGoogleApiClient;
     private TextView mMessageView;
     private Location location;
-    private double lat, lng;
-
-    static final LatLng TutorialsPoint = new LatLng(-6.867668 , 107.593349);
 
     // These settings are the same as the settings for the map. They will in fact give you updates
     // at the maximal rates currently possible.
@@ -80,19 +77,6 @@ public class MapsActivity extends FragmentActivity
         super.onPause();
         mGoogleApiClient.disconnect();
     }
-
-    /**
-     * Button to get current Location. This demonstrates how to get the current Location as required
-     * without needing to register a LocationListener.
-     */
-    public void showMyLocation(View view) {
-        if (mGoogleApiClient.isConnected()) {
-            String msg = "Location = "
-                    + LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-        }
-    }
-
 
     /**
      * Implementation of {@link LocationListener}.

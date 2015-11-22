@@ -1,8 +1,11 @@
 package com.penaorange.gmapkp;
 
+import android.content.Context;
 import android.location.Address;
+import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -16,6 +19,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -82,29 +87,29 @@ public class Dashboard extends FragmentActivity
          */
     public void showMyLocation(View view) {
         if (mGoogleApiClient.isConnected()) {
-
             Location location = new Location(LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient));
             double lat = location.getLatitude();
             double lang = location.getLongitude();
             List<Address> addressList = null;
-
             EditText et = (EditText)findViewById(R.id.lokasi);
 
             Geocoder geocoder = new Geocoder(this);
-            try {
-                addressList = geocoder.getFromLocation(lat, lang, 1);
-            } catch (IOException e) {
-                Toast.makeText(getApplicationContext(), "Lokasi tidak ada ", Toast.LENGTH_SHORT).show();
-            }
+                try {
+                    addressList = geocoder.getFromLocation(lat, lang, 1);
+                } catch (IOException e) {
+                    Toast.makeText(getApplicationContext(), "Lokasi tidak ada ", Toast.LENGTH_SHORT).show();
+                }
 
             Address address = addressList.get(0);
 
-            String msg = "Lokasiku di "+address.getSubLocality()+" "+
+            String msg = "Lokasiku di "+address.getSubLocality()+", "+
                     address.getThoroughfare()+", "+address.getSubAdminArea()+
                     " dengan koordinat lat : " + lat +" dan long : "+lang;
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
 
             et.setText(msg);
+        }else{
+            Toast.makeText(getApplicationContext(), "Tidak ada koneksi", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -114,7 +119,7 @@ public class Dashboard extends FragmentActivity
      */
     @Override
     public void onConnectionFailed(ConnectionResult result) {
-        // Do nothing
+        Toast.makeText(getApplicationContext(), "Tidak ada koneksi, aplikasi tidak berfungsi", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -127,7 +132,6 @@ public class Dashboard extends FragmentActivity
 
         Marker TP = mMap.addMarker(new MarkerOptions().
                 position(TutorialsPoint).title("TutorialsPoint2"));
-
     }
 }
 
