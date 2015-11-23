@@ -1,6 +1,7 @@
 package com.penaorange.gmapkp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -43,8 +44,8 @@ public class Dashboard extends FragmentActivity
     private GoogleMap mMap;
     private UiSettings mUiSetting;
     private GoogleApiClient mGoogleApiClient;
-    static final LatLng TutorialsPoint = new LatLng(-6.867668 , 107.593349);
-
+    static final LatLng TutorialsPoint = new LatLng(-6.867668, 107.593349);
+    EditText et;
 
 
     // These settings are the same as the settings for the map. They will in fact give you updates
@@ -54,61 +55,63 @@ public class Dashboard extends FragmentActivity
             .setFastestInterval(16)    // 16ms = 60fps
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        et = (EditText) findViewById(R.id.lokasi);
+
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
                 .addOnConnectionFailedListener(this)
                 .build();
-
     }
 
-        @Override
-        protected void onResume() {
-            super.onResume();
-            mGoogleApiClient.connect();
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mGoogleApiClient.connect();
+    }
 
-        @Override
-        public void onPause() {
-            super.onPause();
-            mGoogleApiClient.disconnect();
-        }
+    @Override
+    public void onPause() {
+        super.onPause();
+        mGoogleApiClient.disconnect();
+    }
 
-        /**
-         * Button to get current Location. This demonstrates how to get the current Location as required
-         * without needing to register a LocationListener.
-         */
+    /**
+     * Button to get current Location. This demonstrates how to get the current Location as required
+     * without needing to register a LocationListener.
+     */
     public void showMyLocation(View view) {
         if (mGoogleApiClient.isConnected()) {
             Location location = new Location(LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient));
             double lat = location.getLatitude();
             double lang = location.getLongitude();
             List<Address> addressList = null;
-            EditText et = (EditText)findViewById(R.id.lokasi);
 
             Geocoder geocoder = new Geocoder(this);
-                try {
-                    addressList = geocoder.getFromLocation(lat, lang, 1);
-                } catch (IOException e) {
-                    Toast.makeText(getApplicationContext(), "Lokasi tidak ada ", Toast.LENGTH_SHORT).show();
-                }
+            try {
+                addressList = geocoder.getFromLocation(lat, lang, 1);
+            } catch (IOException e) {
+                Toast.makeText(getApplicationContext(), "Lokasi tidak ada ", Toast.LENGTH_SHORT).show();
+            }
 
             Address address = addressList.get(0);
 
-            String msg = "Lokasiku di "+address.getSubLocality()+", "+
-                    address.getThoroughfare()+", "+address.getSubAdminArea()+
-                    " dengan koordinat lat : " + lat +" dan long : "+lang;
+            String msg = "Lokasiku di " + address.getSubLocality() + ", " +
+                    address.getThoroughfare() + ", " + address.getSubAdminArea() +
+                    " dengan koordinat lat : " + lat + " dan long : " + lang;
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
 
             et.setText(msg);
-        }else{
+        } else {
             Toast.makeText(getApplicationContext(), "Tidak ada koneksi", Toast.LENGTH_SHORT).show();
         }
 
@@ -124,7 +127,7 @@ public class Dashboard extends FragmentActivity
 
 
     @Override
-    public void onMapReady(GoogleMap map){
+    public void onMapReady(GoogleMap map) {
         mMap = map;
         mMap.setMyLocationEnabled(true);
         mUiSetting = mMap.getUiSettings();
@@ -133,5 +136,6 @@ public class Dashboard extends FragmentActivity
         Marker TP = mMap.addMarker(new MarkerOptions().
                 position(TutorialsPoint).title("TutorialsPoint2"));
     }
+
 }
 
