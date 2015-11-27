@@ -56,8 +56,8 @@
                             android:textSize="@dimen/text14"
                             android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:id="@+id/lokasiKu"
+                        <RelativeLayout
+                            android:id="@+id/LK"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin5dp"
@@ -69,16 +69,33 @@
                             android:focusableInTouchMode="true">
 
                             <EditText
-                                android:id="@+id/lokasi"
-                                android:layout_width="fill_parent"
+                                android:id="@+id/LKText"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:hint="Lokasi"
                                 android:inputType="text"
-                                android:textSize="15sp"/>
-                        </LinearLayout>
+                                android:textSize="15sp"
+                                android:layout_alignParentTop="true"
+                                android:layout_toLeftOf="@+id/LKButton"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+
+                            <Button
+                                android:id="@+id/LKButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:width="10dp"
+                                android:hint="cari"
+                                android:inputType="text"
+                                android:textSize="15sp"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentEnd="true" />
+
+                        </RelativeLayout>
 
                         <LinearLayout
-                            android:id="@+id/detailLokasi"
+                            android:id="@+id/detailLK"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin5dp"
@@ -88,7 +105,7 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:id="@+id/lokasiDetail"
+                                android:id="@+id/detailLKText"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Lokasi Detail"
@@ -96,7 +113,7 @@
                                 android:textSize="15sp"/>
                         </LinearLayout>
                         <LinearLayout
-                            android:id="@+id/kontak"
+                            android:id="@+id/KK"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin5dp"
@@ -106,7 +123,7 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:id="@+id/kontakTambahan"
+                                android:id="@+id/KKText"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Kontak Tambahan"
@@ -126,7 +143,7 @@
                         android:paddingTop="@dimen/margin10dp">
 
                         <TextView
-                            android:id="@+id/penerima"
+                            android:id="@+id/P"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin5dp"
@@ -135,8 +152,8 @@
                             android:textSize="@dimen/text14"
                             android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:id="@+id/lokasiMu"
+                        <RelativeLayout
+                            android:id="@+id/LP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin5dp"
@@ -146,16 +163,34 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:id="@+id/lokasiPenerima"
-                                android:layout_width="fill_parent"
+                                android:id="@+id/LPText"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:hint="Lokasi"
                                 android:inputType="textEmailAddress"
-                                android:textSize="15sp"/>
-                        </LinearLayout>
+                                android:textSize="15sp"
+                                android:layout_alignParentTop="true"
+                                android:layout_toLeftOf="@+id/LPButton"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                />
+
+                            <Button
+                                android:id="@+id/LPButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="Cari"
+                                android:inputType="text"
+                                android:textSize="15sp"
+                                android:width="10dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentEnd="true"
+                                />
+                        </RelativeLayout>
 
                         <LinearLayout
-                            android:id="@+id/detailLokasiPenerima"
+                            android:id="@+id/detailLP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin5dp"
@@ -165,7 +200,7 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:id="@+id/lokasiDetailPenerima"
+                                android:id="@+id/detailLPText"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Lokasi Detail"
@@ -173,7 +208,7 @@
                                 android:textSize="15sp"/>
                         </LinearLayout>
                         <LinearLayout
-                            android:id="@+id/kontakPenerima"
+                            android:id="@+id/KP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin5dp"
@@ -183,7 +218,7 @@
                             android:weightSum="1">
 
                             <EditText
-                                android:id="@+id/kontakTambahanPenerima"
+                                android:id="@+id/KPText"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Kontak Tambahan"
@@ -210,6 +245,14 @@
                             android:textColor="@color/text_dark"
                             android:textSize="@dimen/text14"
                             android:textStyle="bold" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autocomplete_country"
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:hint="Jenis Barang"
+                            android:textSize="15sp"
+                            />
 
                         <LinearLayout
                             android:id="@+id/jenisPaket"
