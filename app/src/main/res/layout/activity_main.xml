@@ -3,7 +3,7 @@
     android:id="@+id/main"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <include
         android:id="@+id/header"
@@ -12,7 +12,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/header">
+        android:layout_below="@+id/header"
+        android:id="@+id/relativeLayout">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -246,32 +247,11 @@
                             android:textSize="@dimen/text14"
                             android:textStyle="bold" />
 
-                        <AutoCompleteTextView
-                            android:id="@+id/autocomplete_country"
-                            android:layout_height="match_parent"
-                            android:layout_width="match_parent"
-                            android:hint="Jenis Barang"
-                            android:textSize="15sp"
-                            />
-
-                        <LinearLayout
-                            android:id="@+id/jenisPaket"
+                        <Spinner
+                            android:id="@+id/spinner1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/margin5dp"
-                            android:background="@android:color/transparent"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:weightSum="1">
-
-                            <EditText
-                                android:id="@+id/JenisBarang"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Jenis Barang"
-                                android:inputType="textEmailAddress"
-                                android:textSize="15sp"/>
-                        </LinearLayout>
+                            android:spinnerMode="dropdown" />
 
                         <LinearLayout
                             android:id="@+id/berat"
@@ -313,5 +293,6 @@
                 </LinearLayout>
         </LinearLayout>
         </ScrollView>
-    </RelativeLayout>
+
+</RelativeLayout>
 </RelativeLayout>

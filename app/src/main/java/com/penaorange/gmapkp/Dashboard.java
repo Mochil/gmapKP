@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -39,6 +42,8 @@ public class Dashboard extends FragmentActivity
     static final LatLng TutorialsPoint = new LatLng(-6.867668, 107.593349);
     EditText et;
 
+    AutoCompleteTextView jbView;
+    Spinner spinner;
 
     // These settings are the same as the settings for the map. They will in fact give you updates
     // at the maximal rates currently possible.
@@ -58,6 +63,20 @@ public class Dashboard extends FragmentActivity
         mapFragment.getMapAsync(this);
 
         et = (EditText) findViewById(R.id.LKText);
+//        jbView = (AutoCompleteTextView) findViewById(R.id.autocomplete_jenisBarang);
+//
+//        String[] jb = getResources().getStringArray(R.array.jenis_barang);
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, jb);
+//        jbView.setAdapter(adapter);
+
+        spinner = (Spinner) findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.jenis_barang, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
