@@ -3,7 +3,7 @@
     android:id="@+id/main"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/header"
@@ -12,8 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/header"
-        android:id="@+id/relativeLayout">
+        android:layout_below="@+id/header">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -133,100 +132,100 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:orientation="vertical"
-                        android:paddingBottom="20dp"
-                        android:paddingLeft="@dimen/margin20dp"
-                        android:paddingRight="@dimen/margin20dp"
-                        android:paddingTop="@dimen/margin10dp">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@color/white"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:paddingBottom="20dp"-->
+                        <!--android:paddingLeft="@dimen/margin20dp"-->
+                        <!--android:paddingRight="@dimen/margin20dp"-->
+                        <!--android:paddingTop="@dimen/margin10dp">-->
 
-                        <TextView
-                            android:id="@+id/P"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/margin5dp"
-                            android:text="Penerima"
-                            android:textColor="@color/text_dark"
-                            android:textSize="@dimen/text14"
-                            android:textStyle="bold" />
+                        <!--<TextView-->
+                            <!--android:id="@+id/P"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginBottom="@dimen/margin5dp"-->
+                            <!--android:text="Penerima"-->
+                            <!--android:textColor="@color/text_dark"-->
+                            <!--android:textSize="@dimen/text14"-->
+                            <!--android:textStyle="bold" />-->
 
-                        <RelativeLayout
-                            android:id="@+id/LP"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/margin5dp"
-                            android:background="@android:color/transparent"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:weightSum="1">
+                        <!--<RelativeLayout-->
+                            <!--android:id="@+id/LP"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginBottom="@dimen/margin5dp"-->
+                            <!--android:background="@android:color/transparent"-->
+                            <!--android:gravity="center_horizontal"-->
+                            <!--android:orientation="horizontal"-->
+                            <!--android:weightSum="1">-->
 
-                            <EditText
-                                android:id="@+id/LPText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint="Lokasi"
-                                android:inputType="textEmailAddress"
-                                android:textSize="15sp"
-                                android:layout_alignParentTop="true"
-                                android:layout_toLeftOf="@+id/LPButton"
-                                android:layout_alignParentBottom="true"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentStart="true"
-                                />
+                            <!--<EditText-->
+                                <!--android:id="@+id/LPText"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:hint="Lokasi"-->
+                                <!--android:inputType="textEmailAddress"-->
+                                <!--android:textSize="15sp"-->
+                                <!--android:layout_alignParentTop="true"-->
+                                <!--android:layout_toLeftOf="@+id/LPButton"-->
+                                <!--android:layout_alignParentBottom="true"-->
+                                <!--android:layout_alignParentLeft="true"-->
+                                <!--android:layout_alignParentStart="true"-->
+                                <!--/>-->
 
-                            <Button
-                                android:id="@+id/LPButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint="Cari"
-                                android:inputType="text"
-                                android:textSize="15sp"
-                                android:width="10dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_alignParentEnd="true"
-                                />
-                        </RelativeLayout>
+                            <!--<Button-->
+                                <!--android:id="@+id/LPButton"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:hint="Cari"-->
+                                <!--android:inputType="text"-->
+                                <!--android:textSize="15sp"-->
+                                <!--android:width="10dp"-->
+                                <!--android:layout_alignParentRight="true"-->
+                                <!--android:layout_alignParentEnd="true"-->
+                                <!--/>-->
+                        <!--</RelativeLayout>-->
 
-                        <LinearLayout
-                            android:id="@+id/detailLP"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/margin5dp"
-                            android:background="@android:color/transparent"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:weightSum="1">
+                        <!--<LinearLayout-->
+                            <!--android:id="@+id/detailLP"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginBottom="@dimen/margin5dp"-->
+                            <!--android:background="@android:color/transparent"-->
+                            <!--android:gravity="center_horizontal"-->
+                            <!--android:orientation="horizontal"-->
+                            <!--android:weightSum="1">-->
 
-                            <EditText
-                                android:id="@+id/detailLPText"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Lokasi Detail"
-                                android:inputType="textEmailAddress"
-                                android:textSize="15sp"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/KP"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/margin5dp"
-                            android:background="@android:color/transparent"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:weightSum="1">
+                            <!--<EditText-->
+                                <!--android:id="@+id/detailLPText"-->
+                                <!--android:layout_width="fill_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:hint="Lokasi Detail"-->
+                                <!--android:inputType="textEmailAddress"-->
+                                <!--android:textSize="15sp"/>-->
+                        <!--</LinearLayout>-->
+                        <!--<LinearLayout-->
+                            <!--android:id="@+id/KP"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginBottom="@dimen/margin5dp"-->
+                            <!--android:background="@android:color/transparent"-->
+                            <!--android:gravity="center_horizontal"-->
+                            <!--android:orientation="horizontal"-->
+                            <!--android:weightSum="1">-->
 
-                            <EditText
-                                android:id="@+id/KPText"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Kontak Tambahan"
-                                android:inputType="textEmailAddress"
-                                android:textSize="15sp"/>
-                        </LinearLayout>
-                    </LinearLayout>
+                            <!--<EditText-->
+                                <!--android:id="@+id/KPText"-->
+                                <!--android:layout_width="fill_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:hint="Kontak Tambahan"-->
+                                <!--android:inputType="textEmailAddress"-->
+                                <!--android:textSize="15sp"/>-->
+                        <!--</LinearLayout>-->
+                    <!--</LinearLayout>-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -293,6 +292,5 @@
                 </LinearLayout>
         </LinearLayout>
         </ScrollView>
-
-</RelativeLayout>
+    </RelativeLayout>
 </RelativeLayout>

@@ -147,6 +147,5 @@ public class Dashboard extends FragmentActivity
         Marker TP = mMap.addMarker(new MarkerOptions().
                 position(TutorialsPoint).title("TutorialsPoint2"));
     }
-
 }
 
