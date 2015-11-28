@@ -8,15 +8,17 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -34,16 +36,21 @@ import java.util.List;
 public class Dashboard extends FragmentActivity
         implements
         GoogleApiClient.OnConnectionFailedListener,
-        OnMapReadyCallback {
+        OnMapReadyCallback,
+        GoogleMap.OnMapClickListener,
+        GoogleMap.OnMapLongClickListener,
+        GoogleMap.OnMarkerDragListener{
 
     private GoogleMap mMap;
     private UiSettings mUiSetting;
     private GoogleApiClient mGoogleApiClient;
     static final LatLng TutorialsPoint = new LatLng(-6.867668, 107.593349);
     EditText et;
+    Spinner jenisPaketSpinner;
+    Location lokasiKu;
+    TextView textViewC;
+    boolean markerClicked;
 
-    AutoCompleteTextView jbView;
-    Spinner spinner;
 
     // These settings are the same as the settings for the map. They will in fact give you updates
     // at the maximal rates currently possible.
@@ -63,20 +70,11 @@ public class Dashboard extends FragmentActivity
         mapFragment.getMapAsync(this);
 
         et = (EditText) findViewById(R.id.LKText);
-//        jbView = (AutoCompleteTextView) findViewById(R.id.autocomplete_jenisBarang);
-//
-//        String[] jb = getResources().getStringArray(R.array.jenis_barang);
-//
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, jb);
-//        jbView.setAdapter(adapter);
+        textViewC = (TextView)findViewById(R.id.textView);
+        markerClicked = false;
 
-        spinner = (Spinner) findViewById(R.id.spinner1);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.jenis_barang, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+
+        isiJenisBarang();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
@@ -86,8 +84,21 @@ public class Dashboard extends FragmentActivity
 
     @Override
     protected void onResume() {
-        super.onResume();
+//        super.onResume();
         mGoogleApiClient.connect();
+        super.onResume();
+
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+
+        if (resultCode == ConnectionResult.SUCCESS){
+            Toast.makeText(getApplicationContext(),
+                    "isGooglePlayServicesAvailable SUCCESS",
+                    Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(getApplicationContext(),
+                    "isGooglePlayServicesAvailable Failed",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -125,7 +136,6 @@ public class Dashboard extends FragmentActivity
         } else {
             Toast.makeText(getApplicationContext(), "Tidak ada koneksi", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     /**
@@ -145,7 +155,54 @@ public class Dashboard extends FragmentActivity
         mUiSetting.setZoomControlsEnabled(true);
 
         Marker TP = mMap.addMarker(new MarkerOptions().
-                position(TutorialsPoint).title("TutorialsPoint2"));
+                position(TutorialsPoint).title("TutorialsPoint2").draggable(true));
+
+
+        mMap.setOnMapClickListener(this);
+        mMap.setOnMapLongClickListener(this);
+        mMap.setOnMarkerDragListener(this);
+    }
+
+    public void isiJenisBarang(){
+        jenisPaketSpinner = (Spinner) findViewById(R.id.jenisPaket);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.jenis_barang, android.R.layout.simple_spinner_item);
+
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+// Apply the adapter to the spinner
+        jenisPaketSpinner.setAdapter(adapter);
+    }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+        textViewC.setText(latLng.toString());
+        mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+
+        markerClicked = false;
+    }
+
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        textViewC.setText("Marker baru di "+latLng.toString());
+        mMap.addMarker(new MarkerOptions().position(latLng).draggable(true));
+        markerClicked = false;
+    }
+
+    @Override
+    public void onMarkerDragStart(Marker marker) {
+        textViewC.setText("Marker "+marker.getId() +"dragstart");
+    }
+
+    @Override
+    public void onMarkerDrag(Marker marker) {
+        textViewC.setText("Marker "+marker.getId() + "Drag@"+marker.getPosition());
+    }
+
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+        textViewC.setText("Marker "+marker.getId() +"dragend");
     }
 }
 
