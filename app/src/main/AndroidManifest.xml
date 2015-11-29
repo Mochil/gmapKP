@@ -28,20 +28,26 @@
         <activity
             android:name=".SplashScreen"
             android:label="@string/title_activity_maps"
-            android:screenOrientation="portrait"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Dashboard"
-            android:label="@string/title_activity_maps">
+            android:label="@string/title_activity_maps" >
         </activity>
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" >
+            <intent-filter>
+                <action android:name="com.penaorange.activity_maps" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>

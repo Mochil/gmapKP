@@ -1,5 +1,6 @@
 package com.penaorange.gmapkp;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -39,7 +41,8 @@ public class Dashboard extends FragmentActivity
         OnMapReadyCallback,
         GoogleMap.OnMapClickListener,
         GoogleMap.OnMapLongClickListener,
-        GoogleMap.OnMarkerDragListener{
+        GoogleMap.OnMarkerDragListener,
+        View.OnClickListener{
 
     private GoogleMap mMap;
     private UiSettings mUiSetting;
@@ -50,6 +53,7 @@ public class Dashboard extends FragmentActivity
     Location lokasiKu;
     TextView textViewC;
     boolean markerClicked;
+    Button lkButton,lpButton;
 
 
     // These settings are the same as the settings for the map. They will in fact give you updates
@@ -61,7 +65,6 @@ public class Dashboard extends FragmentActivity
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
@@ -71,6 +74,9 @@ public class Dashboard extends FragmentActivity
 
         et = (EditText) findViewById(R.id.LKText);
         textViewC = (TextView)findViewById(R.id.textView);
+        lkButton = (Button)findViewById(R.id.LKButton);
+        lkButton.setOnClickListener(this);
+
         markerClicked = false;
 
 
@@ -203,6 +209,21 @@ public class Dashboard extends FragmentActivity
     @Override
     public void onMarkerDragEnd(Marker marker) {
         textViewC.setText("Marker "+marker.getId() +"dragend");
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.LKButton:
+                pilihLokasiKu();
+                break;
+        }
+//        textViewC.setText(v.getId() + ", "+R.id.LKButton);
+    }
+
+    public void pilihLokasiKu(){
+        Intent i = new Intent(Dashboard.this, MapsActivity.class);
+        startActivity(i);
     }
 }
 
