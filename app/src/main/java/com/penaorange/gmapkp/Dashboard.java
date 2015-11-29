@@ -222,7 +222,7 @@ public class Dashboard extends FragmentActivity
     }
 
     public void pilihLokasiKu(){
-        Intent i = new Intent(Dashboard.this, MapsActivity.class);
+        Intent i = new Intent(Dashboard.this, Main2Activity.class);
         startActivity(i);
     }
 }

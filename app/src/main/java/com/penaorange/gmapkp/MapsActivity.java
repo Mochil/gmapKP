@@ -3,9 +3,7 @@ package com.penaorange.gmapkp;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -16,9 +14,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity
         implements
@@ -30,8 +25,6 @@ public class MapsActivity extends FragmentActivity
     private GoogleMap mMap;
     private UiSettings mUiSetting;
     private GoogleApiClient mGoogleApiClient;
-    private TextView mMessageView;
-    private Location location;
 
     // These settings are the same as the settings for the map. They will in fact give you updates
     // at the maximal rates currently possible.
@@ -44,7 +37,6 @@ public class MapsActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        mMessageView = (TextView) findViewById(R.id.message_text);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -83,7 +75,6 @@ public class MapsActivity extends FragmentActivity
      */
     @Override
     public void onLocationChanged(Location location) {
-        mMessageView.setText("Lokasi = " + location);
     }
 
     /**
