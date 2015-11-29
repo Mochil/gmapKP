@@ -74,8 +74,12 @@ public class Dashboard extends FragmentActivity
 
         et = (EditText) findViewById(R.id.LKText);
         textViewC = (TextView)findViewById(R.id.textView);
+
         lkButton = (Button)findViewById(R.id.LKButton);
         lkButton.setOnClickListener(this);
+
+        lpButton = (Button)findViewById(R.id.LPButton);
+        lpButton.setOnClickListener(this);
 
         markerClicked = false;
 
@@ -217,12 +221,20 @@ public class Dashboard extends FragmentActivity
             case R.id.LKButton:
                 pilihLokasiKu();
                 break;
+            case R.id.LPButton:
+                pilihLokasiPe();
+                break;
         }
 //        textViewC.setText(v.getId() + ", "+R.id.LKButton);
     }
 
     public void pilihLokasiKu(){
         Intent i = new Intent(Dashboard.this, Main2Activity.class);
+        startActivity(i);
+    }
+
+    public void pilihLokasiPe(){
+        Intent i = new Intent(Dashboard.this, Main3Activity.class);
         startActivity(i);
     }
 }
