@@ -2,7 +2,6 @@ package com.penaorange.gmapkp;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.Window;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
