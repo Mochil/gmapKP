@@ -6,18 +6,23 @@ import android.os.Bundle;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Main2Activity extends FragmentActivity
         implements OnMapReadyCallback,
-        GoogleApiClient.OnConnectionFailedListener {
+        GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     private GoogleMap mMap;
     private UiSettings mUiSetting;
     private GoogleApiClient mGoogleApiClient;
+    static final LatLng TutorialsPoint = new LatLng(-6.867668, 107.593349);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +44,25 @@ public class Main2Activity extends FragmentActivity
         mMap.setMyLocationEnabled(true);
         mUiSetting = mMap.getUiSettings();
         mUiSetting.setZoomControlsEnabled(true);
+
+        Marker TP = mMap.addMarker(new MarkerOptions().
+                position(TutorialsPoint).title("TutorialsPoint2").draggable(true));
+
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(TutorialsPoint, 16));
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
 
     }
 }
