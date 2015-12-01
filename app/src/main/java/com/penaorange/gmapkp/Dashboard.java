@@ -48,6 +48,7 @@ public class Dashboard extends FragmentActivity
     private UiSettings mUiSetting;
     private GoogleApiClient mGoogleApiClient;
     static final LatLng TutorialsPoint = new LatLng(-6.867668, 107.593349);
+    public LatLng TutorialsPoint1 = null;
     EditText et;
     Spinner jenisPaketSpinner;
     Location lokasiKu;
@@ -72,6 +73,12 @@ public class Dashboard extends FragmentActivity
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(LocationServices.API)
+                .addOnConnectionFailedListener(this)
+                .build();
+
+        isiJenisBarang();
         et = (EditText) findViewById(R.id.LKText);
         textViewC = (TextView)findViewById(R.id.textView);
 
@@ -84,12 +91,6 @@ public class Dashboard extends FragmentActivity
         markerClicked = false;
 
 
-        isiJenisBarang();
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API)
-                .addOnConnectionFailedListener(this)
-                .build();
     }
 
     @Override
@@ -169,7 +170,6 @@ public class Dashboard extends FragmentActivity
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(TutorialsPoint, 14));
 
-
         mMap.setOnMapClickListener(this);
         mMap.setOnMapLongClickListener(this);
         mMap.setOnMarkerDragListener(this);
@@ -227,7 +227,6 @@ public class Dashboard extends FragmentActivity
                 pilihLokasiPe();
                 break;
         }
-//        textViewC.setText(v.getId() + ", "+R.id.LKButton);
     }
 
     public void pilihLokasiKu(){
@@ -239,5 +238,6 @@ public class Dashboard extends FragmentActivity
         Intent i = new Intent(Dashboard.this, Main3Activity.class);
         startActivity(i);
     }
+
 }
 

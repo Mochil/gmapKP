@@ -7,6 +7,9 @@ public class Lokasi {
     private double lat,lang;
     private String subLocality,thoroughfare, subAdminArea;
 
+    public Lokasi() {
+    }
+
     public Lokasi(double lat, double lang, String subLocality, String thoroughfare, String subAdminArea) {
         this.lat = lat;
         this.lang = lang;
